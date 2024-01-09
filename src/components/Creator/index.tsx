@@ -1,7 +1,9 @@
 import { FC, useState } from "react";
 
+import type { Task } from "../../types";
+
 type CreatorProps = {
-  addTask: (task: string) => void
+  addTask: (task: Task) => void
 }
 
 const Creator: FC<CreatorProps> = ({ addTask }) => {

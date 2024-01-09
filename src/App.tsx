@@ -2,10 +2,12 @@ import { useState } from "react"
 
 import { Creator } from "./components"
 
-const App = () => {
-  const [tasks, setTasks] = useState<string[]>([]);
+import type { Task } from "./types";
 
-  const addTask = (task: string) => {
+const App = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTask = (task: Task) => {
     setTasks(prevTasks => [...prevTasks, task]);
   }
 
