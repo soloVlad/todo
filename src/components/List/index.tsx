@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import { TaskContainer } from "..";
+
 import type { Task } from "../../types";
 
 type ListProps = {
@@ -12,9 +14,7 @@ const List: FC<ListProps> = ({ tasks }) => {
   return (
     <>
       {hasTasks && tasks.map(task => (
-        <div>
-          {task}
-        </div>
+        <TaskContainer key={task.id} task={task} />
       ))}
     </>
   )

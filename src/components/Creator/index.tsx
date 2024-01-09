@@ -1,5 +1,7 @@
 import { FC, useState } from "react";
 
+import helpers from "../../helpers";
+
 import type { Task } from "../../types";
 
 type CreatorProps = {
@@ -7,27 +9,29 @@ type CreatorProps = {
 }
 
 const Creator: FC<CreatorProps> = ({ addTask }) => {
-  const [task, setTask] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
 
   const handleAddClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+
+    const task = helpers.createTask(taskDescription);
 
     addTask(task);
     clearInput();
   }
 
   const handleInputTask = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTask(event.target.value);
+    setTaskDescription(event.target.value);
   }
 
   const clearInput = () => {
-    setTask('');
+    setTaskDescription('');
   }
 
   return (
     <div>
       <input
-        value={task}
+        value={taskDescription}
         onChange={handleInputTask}
       />
 

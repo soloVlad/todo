@@ -11,8 +11,6 @@ const App = () => {
     setTasks(prevTasks => [...prevTasks, task]);
   }
 
-  console.log(tasks);
-
   return (
     <div>
       <Creator addTask={addTask} />
