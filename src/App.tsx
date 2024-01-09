@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { Creator } from "./components"
+import { Creator, List } from "./components"
 
 import type { Task } from "./types";
 
@@ -16,6 +16,7 @@ const App = () => {
   return (
     <div>
       <Creator addTask={addTask} />
+      <List tasks={tasks} />
     </div>
   )
 }
