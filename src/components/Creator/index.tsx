@@ -1,20 +1,17 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { IconPlus } from "@tabler/icons-react";
 
 import helpers from "@helpers";
-
-import { Task } from "@types";
+import { useTasksContext } from "@contexts/TasksContext";
 
 import classes from './index.module.css';
 
 type AddTaskEvent = React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>;
 
-type CreatorProps = {
-  addTask: (task: Task) => void
-}
-
-const Creator: FC<CreatorProps> = ({ addTask }) => {
+const Creator = () => {
   const [taskDescription, setTaskDescription] = useState<string | null>();
+
+  const { addTask } = useTasksContext();
 
   const handleAddClick = (event: AddTaskEvent) => {
     event.preventDefault();

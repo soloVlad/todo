@@ -1,18 +1,11 @@
-import { FC } from "react";
-
 import { TaskContainer } from "@components";
-
-import type { Task } from "@types";
+import { useTasksContext } from "@contexts/TasksContext";
 
 import classes from './index.module.css';
 
-type ListProps = {
-  tasks: Task[];
-  removeTask: (taskId: string) => void;
-  updateTask: (taskId: string, updateInfo: Partial<Task>) => void;
-}
+const List = () => {
+  const { tasks } = useTasksContext();
 
-const List: FC<ListProps> = ({ tasks, removeTask, updateTask }) => {
   const hasTasks = Boolean(tasks.length);
 
   return (
@@ -21,8 +14,6 @@ const List: FC<ListProps> = ({ tasks, removeTask, updateTask }) => {
         <TaskContainer
           key={task.id}
           task={task}
-          removeTask={removeTask}
-          updateTask={updateTask}
         />
       ))}
     </div>
