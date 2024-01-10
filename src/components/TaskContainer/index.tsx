@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { IconTrash } from "@tabler/icons-react";
 import cx from "clsx";
 
@@ -13,17 +13,12 @@ type TaskContainerProps = {
 }
 
 const TaskContainer: FC<TaskContainerProps> = ({ task }) => {
-  const [isChecked, setIsChecked] = useState(() => {
-    return task.status === TaskStatus.CREATED ? false : true;
-  });
-
   const { updateTask, removeTask } = useTasksContext();
 
   const handleCheckClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newIsCheck = event.target.checked;
     const newTaskStatus = newIsCheck ? TaskStatus.COMPLETED : TaskStatus.CREATED;
 
-    setIsChecked(newIsCheck);
     updateTask(task.id, { status: newTaskStatus });
   }
 
@@ -36,7 +31,7 @@ const TaskContainer: FC<TaskContainerProps> = ({ task }) => {
       <input
         className={classes.check}
         type="checkbox"
-        checked={isChecked}
+        checked={task.status === TaskStatus.COMPLETED}
         onChange={handleCheckClick}
       />
 
