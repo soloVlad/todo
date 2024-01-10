@@ -9,7 +9,7 @@ import classes from './index.module.css';
 type AddTaskEvent = React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>;
 
 const Creator = () => {
-  const [taskDescription, setTaskDescription] = useState<string | null>();
+  const [taskDescription, setTaskDescription] = useState<string>('');
 
   const { addTask } = useTasksContext();
 
