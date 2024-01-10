@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
-import { Creator, List } from "./components"
+import { Creator, List } from "@components"
 
-import type { Task } from "./types";
+import type { Task } from "@types";
 
 const LS_TASKS_KEY = 'tasks';
 

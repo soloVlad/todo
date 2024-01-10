@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import { TaskContainer } from "..";
+import { TaskContainer } from "@components";
 
-import type { Task } from "../../types";
+import type { Task } from "@types";
 
 type ListProps = {
   tasks: Task[];

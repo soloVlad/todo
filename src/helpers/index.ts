@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-import { Task, TaskStatus } from "../types"
+import { Task, TaskStatus } from "@types";
 
 const createTask = (taskDescription: string): Task => {
   const id = uuid();

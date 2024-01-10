@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 
-import helpers from "../../helpers";
+import helpers from "@helpers";
 
-import type { Task } from "../../types";
+import { Task } from "@types";
 
 type CreatorProps = {
   addTask: (task: Task) => void

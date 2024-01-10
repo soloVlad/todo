@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import { TaskStatus, type Task } from "../../types";
+import { TaskStatus, type Task } from "@types";
 
 type TaskContainerProps = {
   task: Task;
@@ -9,7 +9,7 @@ type TaskContainerProps = {
 }
 
 const TaskContainer: FC<TaskContainerProps> = ({ task, removeTask, updateTask }) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [, setIsChecked] = useState(false);
 
   const handleCheckClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newIsCheck = event.target.checked;
