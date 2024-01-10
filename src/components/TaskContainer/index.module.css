@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.description {
+  flex-grow: 1;
+}
+
+.descriptionChecked {
+  text-decoration: line-through;
+  color: #CCCCCC;
+}
+
+.check {
+  width: 32px;
+  height: 32px;
+  appearance: none;
+  border: 2px solid #B4B4B4;
+  border-radius: 8px;
+}
+
+.check:checked {
+  border: none;
+  background-color: #29ABE2;
+}
+
+.removeButton {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+
+  display: flex;
+  place-items: center;
+
+  cursor: pointer;
+}
+
+.trashIcon {
+  color: #B30000;
+}
+
+.removeButton:hover .trashIcon {
+  color: #8C0000;
+}

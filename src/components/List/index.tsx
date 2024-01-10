@@ -4,6 +4,8 @@ import { TaskContainer } from "@components";
 
 import type { Task } from "@types";
 
+import classes from './index.module.css';
+
 type ListProps = {
   tasks: Task[];
   removeTask: (taskId: string) => void;
@@ -14,7 +16,7 @@ const List: FC<ListProps> = ({ tasks, removeTask, updateTask }) => {
   const hasTasks = Boolean(tasks.length);
 
   return (
-    <>
+    <div className={classes.list}>
       {hasTasks && tasks.map(task => (
         <TaskContainer
           key={task.id}
@@ -23,7 +25,7 @@ const List: FC<ListProps> = ({ tasks, removeTask, updateTask }) => {
           updateTask={updateTask}
         />
       ))}
-    </>
+    </div>
   )
 }
 

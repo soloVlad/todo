@@ -43,7 +43,7 @@ const Creator: FC<CreatorProps> = ({ addTask }) => {
         className={classes.button}
         onClick={handleAddClick}
       >
-        <IconPlus stroke={3} color="#fff" size={28} />
+        <IconPlus stroke={3} color="#fff" size={36} />
       </button>
     </div>
   )
