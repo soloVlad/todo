@@ -38,6 +38,7 @@ const Creator: FC<CreatorProps> = ({ addTask }) => {
       <input
         className={classes.input}
         value={taskDescription ?? undefined}
+        placeholder="Enter new ambitious task..."
         onChange={handleInputTask}
       />
 
