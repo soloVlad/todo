@@ -12,10 +12,12 @@ type CreatorProps = {
 }
 
 const Creator: FC<CreatorProps> = ({ addTask }) => {
-  const [taskDescription, setTaskDescription] = useState('');
+  const [taskDescription, setTaskDescription] = useState<string | null>();
 
   const handleAddClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+
+    if (!taskDescription) return;
 
     const task = helpers.createTask(taskDescription);
 
@@ -35,7 +37,7 @@ const Creator: FC<CreatorProps> = ({ addTask }) => {
     <div className={classes.wrapper}>
       <input
         className={classes.input}
-        value={taskDescription}
+        value={taskDescription ?? undefined}
         onChange={handleInputTask}
       />
 
