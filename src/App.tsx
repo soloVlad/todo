@@ -4,6 +4,8 @@ import { Creator, List } from "@components"
 
 import type { Task } from "@types";
 
+import classes from './App.module.css';
+
 const LS_TASKS_KEY = 'tasks';
 
 const App = () => {
@@ -38,7 +40,7 @@ const App = () => {
   }, [tasks]);
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       <Creator addTask={addTask} />
       <List tasks={tasks} removeTask={removeTask} updateTask={updateTask} />
     </div>

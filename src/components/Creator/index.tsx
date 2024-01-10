@@ -1,8 +1,11 @@
 import { FC, useState } from "react";
+import { IconPlus } from "@tabler/icons-react";
 
 import helpers from "@helpers";
 
 import { Task } from "@types";
+
+import classes from './index.module.css';
 
 type CreatorProps = {
   addTask: (task: Task) => void
@@ -29,13 +32,19 @@ const Creator: FC<CreatorProps> = ({ addTask }) => {
   }
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       <input
+        className={classes.input}
         value={taskDescription}
         onChange={handleInputTask}
       />
 
-      <button onClick={handleAddClick}>Add</button>
+      <button
+        className={classes.button}
+        onClick={handleAddClick}
+      >
+        <IconPlus stroke={3} color="#fff" size={28} />
+      </button>
     </div>
   )
 }

@@ -4,8 +4,19 @@
   font-weight: 400;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #333333;
+
+  color: #FFFFFF;
 }
