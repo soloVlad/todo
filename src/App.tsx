@@ -1,11 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { Creator, List } from "./components"
 
 import type { Task } from "./types";
 
+const LS_TASKS_KEY = 'tasks';
+
 const App = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const loadedTasksString = window.localStorage.getItem(LS_TASKS_KEY);
+
+    if (loadedTasksString) {
+      return JSON.parse(loadedTasksString);
+    }
+
+    return [];
+  });
 
   const addTask = (task: Task) => {
     setTasks(prevTasks => [...prevTasks, task]);
@@ -22,6 +32,10 @@ const App = () => {
       return { ...task, ...updateInfo }
     }))
   }
+
+  useEffect(() => {
+    window.localStorage.setItem(LS_TASKS_KEY, JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div>
