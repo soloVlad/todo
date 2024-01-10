@@ -7,6 +7,8 @@ import { Task } from "@types";
 
 import classes from './index.module.css';
 
+type AddTaskEvent = React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>;
+
 type CreatorProps = {
   addTask: (task: Task) => void
 }
@@ -14,7 +16,7 @@ type CreatorProps = {
 const Creator: FC<CreatorProps> = ({ addTask }) => {
   const [taskDescription, setTaskDescription] = useState<string | null>();
 
-  const handleAddClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAddClick = (event: AddTaskEvent) => {
     event.preventDefault();
 
     if (!taskDescription) return;
@@ -24,6 +26,12 @@ const Creator: FC<CreatorProps> = ({ addTask }) => {
     addTask(task);
     clearInput();
   }
+
+  const handleEnterPressed = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleAddClick(event);
+    }
+  };
 
   const handleInputTask = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTaskDescription(event.target.value);
@@ -40,6 +48,7 @@ const Creator: FC<CreatorProps> = ({ addTask }) => {
         value={taskDescription ?? undefined}
         placeholder="Enter new ambitious task..."
         onChange={handleInputTask}
+        onKeyDown={handleEnterPressed}
       />
 
       <button
